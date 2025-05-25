@@ -1,4 +1,4 @@
-package collection.array;
+package collection.array.utils;
 
 public class CustomArrayListMain {
 
