@@ -34,4 +34,27 @@ public abstract class ArrayUtil {
     }
     throw new IllegalArgumentException("Array must not be null or empty");
   }
+
+  public static String findMaxOccurredAlphabet(String str) {
+    if (str == null || str.isEmpty()) {
+      throw new IllegalArgumentException("String must not be null or empty");
+    }
+
+    int[] count = new int[26]; // Assuming only lowercase letters a-z
+    for (char c : str.toCharArray()) {
+      if (c >= 'a' && c <= 'z') {
+        count[c - 'a']++;
+      }
+    }
+
+    int maxCount = 0;
+    char maxChar = 'a';
+    for (int i = 0; i < count.length; i++) {
+      if (count[i] > maxCount) {
+        maxCount = count[i];
+        maxChar = (char) ('a' + i);
+      }
+    }
+    return String.valueOf(maxChar);
+  }
 }
